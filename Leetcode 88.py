@@ -25,28 +25,27 @@ Constraints:
 '''
 
 def runningSum(nums):
-    '''
+    """
     :type nums: List[int]
     :rtype: List[int]
+    """
+    
     '''
-        
-    sum = 0
-    result = []
-    # Go through the nums array
-    for num in nums:
-        # sum will add the current index num in nums
-        sum += num
-        # add the sum to the result array
-        result.append(sum)
-    return result
+    Goes through the array from first index, adds the current index
+    # with the previous index, as the previous index will always be the
+    sum of all elements up to that index position
+    '''
+    for num in range(1, len(nums)):
+        nums[num] += nums[num - 1]
+    return nums
 
 print(runningSum([1,2,3,4,5]))
 
 '''
-While this code passed, this was only 50% faster than other submissions
-
-Reviewing the code, we might not have to recreate another array to save memory space and time, 
-also, realizing that sum can start from the first element, and we can always just add the previous
-element in the modified array, as the previous number is always the sum of all previous elements
+This code passed 99.86% of submissions. As this runs in linear time
+O(n) once through the list and only the original list. As each index will
+be updated with the sum of all numbers before the current index, we just
+have to add the current index with the previous index to get the running
+sum. The old solution with a brand new list and a sum variable is deleted.
 '''
 
