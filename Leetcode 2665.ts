@@ -37,7 +37,7 @@ type Counter = {
 }
 
 function createCounter(init: number): Counter {
-    var num = init;
+    var num : number = init;
     return {
         increment: () => {
             return ++num;
