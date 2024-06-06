@@ -44,16 +44,22 @@ function expect(val1: any): ToBeOrNotToBe {
     }
 };
 
-console.log(expect(5).toBe(5) + '\n' + expect(5).notToBe(4));
+console.log("Expect 5 to be 5: " + expect(5).toBe(5));
+console.log("Expect 5 to be 5: " + expect(5).notToBe(4));
 
 try {
     expect(5).toBe(null);
 } catch (err){
-    console.log(err);
+    console.log("5 and null is Not Equal");
 }
 
 try {
     expect(5).notToBe(5);
 } catch (err){
-    console.log(err);
+    console.log("5 and 5 is Equal");
 }
+
+/*
+A custom type is defined here, where the expect function returns an object with two functions toBe and notToBe.
+The expect function is declared to return the custom type, which means we can just return the object from the function.
+*/
